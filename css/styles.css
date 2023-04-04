@@ -56,6 +56,7 @@ img {
 padding-top: 24px;
 padding-bottom: 24px;
 border-bottom: 1px solid #E7E9FC;
+box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -143,9 +144,12 @@ border-bottom: 1px solid #E7E9FC;
         rgba(46, 47, 66, 0.7)
     ),
      url(../images/people-office.jpg);
+     max-width: 1440px;
+     display: block;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -173,8 +177,8 @@ border-bottom: 1px solid #E7E9FC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     margin: 0 auto;
-    display: flex;
-    border: 1px;
+    display: block;
+    border: 1px solid transparent;
 }
 
 .hero-btn:hover {
@@ -189,26 +193,10 @@ border-bottom: 1px solid #E7E9FC;
     padding-top: 120px;
 }
 
-.feature-icon-list {
-    display: flex;
-    gap: 24px;
-}
-
-.feature-icon-item {
-    width: 264px;
-    height: 112px;
-    left: 0px;
-    top: 0px;
-    background:var(--color-footer-text);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-}
-
-.feature-icon {
-
+.feature-hidden-title {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
 
 .feature-list {
@@ -218,7 +206,20 @@ border-bottom: 1px solid #E7E9FC;
 
 .feature-item {
     width: 264px;
-    height: 104px;
+}
+
+.feature-icon-block {
+    background:var(--color-footer-text);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding: 24px 100px;
+}
+
+.feature-icon {
+
 }
 
 .feature-title {
@@ -359,7 +360,7 @@ border-bottom: 1px solid #E7E9FC;
     letter-spacing: 0.02em;
     text-transform: capitalize;
     color: var(--title-text-color);
-    padding-bottom: 72px;
+    margin-bottom: 72px;
 }
 
 .customers-list {
@@ -386,7 +387,7 @@ border-bottom: 1px solid #E7E9FC;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    fill: #8E8F99;
 }
 
 .customers-link:hover,
@@ -396,7 +397,6 @@ border-bottom: 1px solid #E7E9FC;
 }
 
 .customers-logo {
-    fill: #8E8F99;
 }
 
 .footer-container {
@@ -436,7 +436,7 @@ border-bottom: 1px solid #E7E9FC;
 
 .footer-social-wrap {
     height: 80px;
-    padding-left: 120px;
+    margin-left: 120px;
 }
 
 .footer-title {
@@ -445,7 +445,7 @@ border-bottom: 1px solid #E7E9FC;
     line-height: 24px;
     letter-spacing: 0.02em;
     color: var(--color-title);
-    padding-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .footer-soc-list {
@@ -519,12 +519,17 @@ body {
 .portfolio-btn:hover {
     color: var(--color-title);
     background-color: var(--hover-and-focus-color);
-    border: 1px solid;
+    border: 1px solid transparent;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
 }
 
 .portfolio-btn:focus {
     color: var(--color-title);
     background-color: var(--hover-and-focus-color);
+    border: 1px solid transparent;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
 }
 
 .card-list {
@@ -535,18 +540,15 @@ body {
 }
 
 .card-item {
-    width: 360px;
-    width: calc ((100% - 48px) / 3);
+    width: calc((100% - 48px) / 3);
 }
 
-.link {
-    
+.card-link:is(:hover,:focus)
+.description {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .description {
-padding-top: 32px;
-padding-bottom: 32px;
-padding-left: 16px;
 border: 1px solid #E7E9FC;
 border-top: 0px;
 }
@@ -558,6 +560,8 @@ border-top: 0px;
     letter-spacing: 0.02em;
     color: var(--title-text-color);
     margin-bottom: 8px;
+    padding-top: 32px;
+    padding-left: 16px;
 }
 
 .card-paragraph {
@@ -565,4 +569,6 @@ border-top: 0px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--primery-text-color);
+    padding-bottom: 32px;
+    padding-left: 16px;
 }
